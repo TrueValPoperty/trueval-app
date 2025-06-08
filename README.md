@@ -1,45 +1,16 @@
-# TrueVal App
+# TrueVal Logs MVP
 
-Fullstack AI-powered property valuation platform using Flask (backend) and React + Vite + Tailwind (frontend).
+---
 
-## 📁 Structure
+## 📄 License
 
-```
-trueval-app/
-├── backend/     # Flask API
-└── frontend/    # React UI with Tailwind
-```
+MIT License – © 2025 William Tyler-Street / TrueVal
 
-## 🚀 Development
+## 💬 Questions or Contributions?
 
-### Backend
+Open an issue or reach out to [williamtylerstreet@gmail.com](mailto:williamtylerstreet@gmail.com).
 
-```bash
-cd backend
-pip install -r requirements.txt
-python app.py
-```
+### Contact
 
-### Frontend
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-## 🌐 Render Deployment
-
-Two services:
-- `trueval-api` → Python Web Service
-- `trueval-ui`  → Static Site with `VITE_API_BASE` env var pointing to backend
-
-## 🔗 API Endpoint
-
-`GET /predict` → returns mock valuation:
-```json
-{
-  "valuation": 375000,
-  "confidence": "high"
-}
-```
+- **William Tyler-Street**: williamtylerstreet@gmail.com  
+- **TrueVal Support**: hello@trueval.co.uk
