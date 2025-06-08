@@ -1,38 +1,25 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
-import datetime
-import json
+import requests
 
 app = Flask(__name__)
 CORS(app)
 
-LOG_FILE = "valuation_log.json"
+AIRTABLE_API_KEY = "your_airtable_api_key"
+BASE_ID = "appShV6ffCc9yxeHF"
+TABLE_ID = "tblV4I8VUyfx4JrnF"
 
-def log_request(data):
-    log_entry = {
-        "timestamp": datetime.datetime.utcnow().isoformat(),
-        "data": data
+def fetch_logs():
+    url = f"https://api.airtable.com/v0/{BASE_ID}/{TABLE_ID}"
+    headers = {
+        "Authorization": f"Bearer {AIRTABLE_API_KEY}"
     }
-    try:
-        with open(LOG_FILE, "a") as f:
-            f.write(json.dumps(log_entry) + "\n")
-    except Exception as e:
-        print("Logging failed:", e)
-
-@app.route("/predict")
-def predict():
-    result = {"valuation": 375000, "confidence": "high"}
-    log_request(result)
-    return jsonify(result)
+    response = requests.get(url, headers=headers)
+    return response.json().get("records", [])
 
 @app.route("/logs")
-def get_logs():
-    try:
-        with open(LOG_FILE, "r") as f:
-            lines = f.readlines()
-            return jsonify([json.loads(line) for line in lines])
-    except FileNotFoundError:
-        return jsonify([])
+def logs():
+    return jsonify(fetch_logs())
 
 if __name__ == "__main__":
     app.run(debug=True)

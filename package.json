@@ -1,5 +1,5 @@
 {
-  "name": "trueval-ui",
+  "name": "trueval-logs-ui",
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
@@ -11,11 +11,6 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.7",
-    "@tailwindcss/typography": "^0.5.10",
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.21",
-    "tailwindcss": "^3.3.2",
     "vite": "^5.0.0"
   }
 }
