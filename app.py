@@ -1,12 +1,12 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 import requests
+import os
 
 app = Flask(__name__)
 CORS(app)
 
-# Replace with your real key (use an env variable in production)
-AIRTABLE_API_KEY = "your_airtable_api_key"
+AIRTABLE_API_KEY = os.environ.get("AIRTABLE_API_KEY")
 BASE_ID = "appShV6ffCc9yxeHF"
 TABLE_ID = "tblV4I8VUyfx4JrnF"
 
